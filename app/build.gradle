@@ -26,4 +26,15 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
+    //View注解   代码地址-----> https://github.com/JakeWharton/butterknife
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //API网络请求注解库    代码地址-----> https://github.com/square/retrofit
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    //网络请求库 代码地址-----> https://github.com/square/okhttp
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    //解析JSON数据  代码地址-----> https://code.google.com/p/google-gson/
+    compile 'com.google.code.gson:gson:2.4'
+    //logger   代码地址-----> https://github.com/orhanobut/logger
+    compile 'com.orhanobut:logger:1.8'
 }
