@@ -10,6 +10,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.VideoView;
 
+import com.reachmedia.ad.reachmediaad.model.GetIdModel;
+import com.reachmedia.ad.reachmediaad.network.callback.UiDisplayListener;
+import com.reachmedia.ad.reachmediaad.network.controller.GetIdController;
+
 public class MainActivity extends Activity {
 
     private VideoView vv;
@@ -34,7 +38,27 @@ public class MainActivity extends Activity {
         };
         vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
         play();
+
+        http();
     }
+
+
+    private void http(){
+        GetIdController getIdController = new GetIdController(new UiDisplayListener<GetIdModel>() {
+            @Override
+            public void onSuccessDisplay(GetIdModel data) {
+
+            }
+
+            @Override
+            public void onFailDisplay(String errorMsg) {
+
+            }
+        });
+        getIdController.getId();
+    }
+
+
 
     private void hide(){
         // 隐藏标题栏

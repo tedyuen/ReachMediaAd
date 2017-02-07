@@ -1,5 +1,14 @@
 package com.reachmedia.ad.reachmediaad.network.http;
 
+import com.reachmedia.ad.reachmediaad.app.AppApiContact;
+import com.reachmedia.ad.reachmediaad.model.GetIdModel;
+
+import retrofit.Callback;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
+import retrofit.http.GET;
+import retrofit.http.POST;
+
 /**
  * Created by tedyuen on 2017/2/6.
  */
@@ -7,4 +16,7 @@ package com.reachmedia.ad.reachmediaad.network.http;
 public interface AppApiService {
 
 
+
+    @GET(AppApiContact.API_GET_ID)
+    void getId(Callback<GetIdModel> cb);
 }
