@@ -7,9 +7,16 @@
     tools:context="com.reachmedia.ad.reachmediaad.MainActivity"
     android:background="@android:color/background_dark">
 
-    <VideoView
-        android:id="@+id/vv"
+    <!--<VideoView-->
+        <!--android:id="@+id/vv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"/>-->
+
+    <ImageView
+        android:id="@+id/iv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"/>
+
 </RelativeLayout>

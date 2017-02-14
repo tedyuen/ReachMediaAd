@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.VideoView;
 
 import com.reachmedia.ad.reachmediaad.app.AppApiContact;
@@ -16,10 +17,18 @@ import com.reachmedia.ad.reachmediaad.model.GetIdModel;
 import com.reachmedia.ad.reachmediaad.network.callback.UiDisplayListener;
 import com.reachmedia.ad.reachmediaad.network.controller.GetIdController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends Activity {
 
     private VideoView vv;
+    private ImageView iv;
     String[] uri;
+    int[] resourceId;
+    long lastTime;
+
+    Map<String,Integer> targetImage = new HashMap<>();
     String uriRoot;
     int current = 0;
     @Override
@@ -27,27 +36,73 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         hide();
         setContentView(R.layout.activity_main);
-        vv = (VideoView) findViewById(R.id.vv);
+
+        iv = (ImageView) findViewById(R.id.iv);
+
+        targetImage.put("gonggao11",R.mipmap.gonggao11);
+        targetImage.put("xiaodaizhijia",R.mipmap.xiaodaizhijia);
+
+        resourceId = new int[]{
+                R.mipmap.gonggao11,
+                R.mipmap.kaidilake,
+                R.mipmap.laogui,
+                R.mipmap.weilushi,
+                R.mipmap.xiaodaizhijia,
+                R.mipmap.yingfu
+        };
+
+
+        lastTime = System.currentTimeMillis();
+        setImage("-1");
+
+
+
+//        vv = (VideoView) findViewById(R.id.vv);
 
 
         String rootUri = "android.resource://" + getPackageName() + "/";
 
-        uriRoot = rootUri + R.raw.img_1;
-        uri = new String[]{
-                rootUri + R.raw.img_2,
-                rootUri + R.raw.img_3,
-                rootUri + R.raw.img_4,
-                rootUri + R.raw.img_5,
-        };
-        playRoot();
+//        uriRoot = rootUri + R.raw.img_1;
+//        uri = new String[]{
+//                rootUri + R.raw.img_2,
+//                rootUri + R.raw.img_3,
+//                rootUri + R.raw.img_4,
+//                rootUri + R.raw.img_5,
+//        };
+//        playRoot();
 
+    }
+
+    int delay = 6000;
+
+    private void setImage(String id){
+        if(!"-1".equals(id) && targetImage.containsKey(id)){
+            iv.setImageResource(resourceId[targetImage.get(id)]);
+            getServerId(delay);
+        }else{
+            long currentTime = System.currentTimeMillis();
+            if((currentTime-lastTime)>=delay){
+                lastTime = currentTime;
+                if(current>=resourceId.length){
+                    current = 0;
+                }
+                iv.setImageResource(resourceId[current]);
+                current++;
+            }
+
+            getServerId(1000);
+        }
+    }
+
+    private void getServerId(int delay){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 http();
             }
-        },2000);
+        },delay);
     }
+
 
 
     private void http(){
@@ -56,7 +111,8 @@ public class MainActivity extends Activity {
             public void onSuccessDisplay(GetIdModel data) {
                 if (data != null) {
                     if (AppApiContact.ErrorCode.SUCCESS.equals(data.rescode)) {
-                        play();
+//                        play();
+                        setImage(data.getData().getVideoId());
                     }
                 }
             }
