@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
                 R.mipmap.kaidilake,
                 R.mipmap.laogui,
                 R.mipmap.weilushi,
-                R.mipmap.xiaodaizhijia,
+//                R.mipmap.xiaodaizhijia,
                 R.mipmap.yingfu
         };
 
@@ -122,12 +122,15 @@ public class MainActivity extends Activity {
 
                         tv.setText((now-httpTime)+":"+data.getData().getVideoId()+":"+data.getData().getMac());
                         httpTime =  now;
+                    }else{
+                        setImage("-1");
                     }
                 }
             }
 
             @Override
             public void onFailDisplay(String errorMsg) {
+                setImage("-1");
 
             }
         });
