@@ -7,17 +7,17 @@
     tools:context="com.reachmedia.ad.reachmediaad.MainActivity"
     android:background="@android:color/background_dark">
 
-    <!--<VideoView-->
-        <!--android:id="@+id/vv"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"/>-->
-
-    <ImageView
-        android:id="@+id/iv"
+    <VideoView
+        android:id="@+id/vv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"/>
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scaleType="fitCenter"/>-->
     <TextView
         android:id="@+id/tv"
         android:textColor="@android:color/white"

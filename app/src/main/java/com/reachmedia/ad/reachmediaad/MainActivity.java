@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
     long httpTime;
 
     Map<String,Integer> targetImage = new HashMap<>();
+    Map<String,String> targetMp4 = new HashMap<>();
     String uriRoot;
     int current = 0;
     @Override
@@ -40,7 +41,7 @@ public class MainActivity extends Activity {
         hide();
         setContentView(R.layout.activity_main);
 
-        iv = (ImageView) findViewById(R.id.iv);
+//        iv = (ImageView) findViewById(R.id.iv);
         tv = (TextView) findViewById(R.id.tv);
 
         targetImage.put("gonggao11",R.mipmap.gonggao11);
@@ -58,23 +59,27 @@ public class MainActivity extends Activity {
 
         lastTime = 0;
         httpTime = System.currentTimeMillis();
-        setImage("-1");
+//        setImage("-1");
 
 
 
-//        vv = (VideoView) findViewById(R.id.vv);
+        vv = (VideoView) findViewById(R.id.vv);
 
 
         String rootUri = "android.resource://" + getPackageName() + "/";
 
-//        uriRoot = rootUri + R.raw.img_1;
-//        uri = new String[]{
-//                rootUri + R.raw.img_2,
-//                rootUri + R.raw.img_3,
-//                rootUri + R.raw.img_4,
-//                rootUri + R.raw.img_5,
-//        };
-//        playRoot();
+        uri = new String[]{
+//                rootUri + R.raw.puxipingan,
+//                rootUri + R.raw.saiou,
+                rootUri + R.raw.shihualuoshiqi,
+                rootUri + R.raw.yyzhiru,
+        };
+
+        targetMp4.put("puxipingan",rootUri + R.raw.puxipingan);
+        targetMp4.put("saiou",rootUri + R.raw.saiou);
+
+
+        play("-1");
 
     }
 
@@ -117,20 +122,21 @@ public class MainActivity extends Activity {
                 if (data != null) {
                     if (AppApiContact.ErrorCode.SUCCESS.equals(data.rescode)) {
 //                        play();
-                        setImage(data.getData().getVideoId());
+                        play(data.getData().getVideoId());
                         long now = System.currentTimeMillis();
-
                         tv.setText((now-httpTime)+":"+data.getData().getVideoId()+":"+data.getData().getMac());
                         httpTime =  now;
                     }else{
-                        setImage("-1");
+//                        setImage("-1");
+                        play("-1");
                     }
                 }
             }
 
             @Override
             public void onFailDisplay(String errorMsg) {
-                setImage("-1");
+//                setImage("-1");
+                play("-1");
 
             }
         });
@@ -149,28 +155,33 @@ public class MainActivity extends Activity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
 
-    private void playRoot(){
-        vv.setOnCompletionListener(new MyPlayerOnCompletionRootListener());
-        vv.setVideoURI(Uri.parse(uriRoot));
+    private void playRoot(String id){
+        vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
+        vv.setVideoURI(Uri.parse(targetMp4.get(id)));
         vv.start();
     }
 
-    private void play(){
-        if(vv!=null && vv.isPlaying()){
-            vv.stopPlayback();
+    private void play(String id){
+        if(!"-1".equals(id) && targetMp4.containsKey(id)) {
+            playRoot(id);
+        }else{
+            if(vv!=null && vv.isPlaying()){
+                vv.stopPlayback();
+            }
+            vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
+            if(current>=uri.length){
+                current = 0;
+            }
+            vv.setVideoURI(Uri.parse(uri[current]));
+            vv.start();
         }
-        vv.setOnCompletionListener(new MyPlayerOnCompletionListener());
-        if(current>=uri.length){
-            current = 0;
-        }
-        vv.setVideoURI(Uri.parse(uri[current]));
-        vv.start();
+
     }
 
     class MyPlayerOnCompletionRootListener implements MediaPlayer.OnCompletionListener {
         @Override
         public void onCompletion(MediaPlayer mp) {
-            playRoot();
+//            playRoot();
         }
     }
     class MyPlayerOnCompletionListener implements MediaPlayer.OnCompletionListener {
