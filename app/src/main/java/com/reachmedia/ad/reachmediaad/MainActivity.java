@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.reachmedia.ad.reachmediaad.app.AppApiContact;
@@ -24,9 +25,11 @@ public class MainActivity extends Activity {
 
     private VideoView vv;
     private ImageView iv;
+    private TextView tv;
     String[] uri;
     int[] resourceId;
     long lastTime;
+    long httpTime;
 
     Map<String,Integer> targetImage = new HashMap<>();
     String uriRoot;
@@ -38,12 +41,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         iv = (ImageView) findViewById(R.id.iv);
+        tv = (TextView) findViewById(R.id.tv);
 
         targetImage.put("gonggao11",R.mipmap.gonggao11);
         targetImage.put("xiaodaizhijia",R.mipmap.xiaodaizhijia);
 
         resourceId = new int[]{
-                R.mipmap.gonggao11,
+//                R.mipmap.gonggao11,
                 R.mipmap.kaidilake,
                 R.mipmap.laogui,
                 R.mipmap.weilushi,
@@ -52,7 +56,8 @@ public class MainActivity extends Activity {
         };
 
 
-        lastTime = System.currentTimeMillis();
+        lastTime = 0;
+        httpTime = System.currentTimeMillis();
         setImage("-1");
 
 
@@ -77,7 +82,7 @@ public class MainActivity extends Activity {
 
     private void setImage(String id){
         if(!"-1".equals(id) && targetImage.containsKey(id)){
-            iv.setImageResource(resourceId[targetImage.get(id)]);
+            iv.setImageResource(targetImage.get(id));
             getServerId(delay);
         }else{
             long currentTime = System.currentTimeMillis();
@@ -113,6 +118,10 @@ public class MainActivity extends Activity {
                     if (AppApiContact.ErrorCode.SUCCESS.equals(data.rescode)) {
 //                        play();
                         setImage(data.getData().getVideoId());
+                        long now = System.currentTimeMillis();
+
+                        tv.setText((now-httpTime)+":"+data.getData().getVideoId()+":"+data.getData().getMac());
+                        httpTime =  now;
                     }
                 }
             }

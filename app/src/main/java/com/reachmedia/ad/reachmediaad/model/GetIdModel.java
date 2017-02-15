@@ -33,7 +33,7 @@ public class GetIdModel extends BaseModel implements Parcelable{
 
         private long createTime;
         private int id;
-        private String macAddress;
+        private String mac;
         private String videoId;
 
         public long getCreateTime() {
@@ -52,12 +52,12 @@ public class GetIdModel extends BaseModel implements Parcelable{
             this.id = id;
         }
 
-        public String getMacAddress() {
-            return macAddress;
+        public String getMac() {
+            return mac;
         }
 
-        public void setMacAddress(String macAddress) {
-            this.macAddress = macAddress;
+        public void setMac(String mac) {
+            this.mac = mac;
         }
 
         public String getVideoId() {
