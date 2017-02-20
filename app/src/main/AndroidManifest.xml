@@ -25,6 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.VideoPlayActivity"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+        <activity android:name=".ui.ImgPlayActivity"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+
     </application>
 
 </manifest>
