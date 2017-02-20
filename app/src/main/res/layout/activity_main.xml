@@ -24,23 +24,17 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/bt_six"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="六张\n轮播"
             style="@style/RedButtonStyle"/>
 
         <Button
             android:id="@+id/bt_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="四张\n轮播"
             style="@style/RedButtonStyle"
             android:layout_marginLeft="20dp"/>
 
         <Button
             android:id="@+id/bt_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="信号\n测试"
             style="@style/RedButtonStyle"
             android:layout_marginLeft="20dp"/>
