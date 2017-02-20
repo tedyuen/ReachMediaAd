@@ -89,6 +89,7 @@ public class ImgPlayActivity extends Activity {
 
 
     private void setImage(String id){
+        System.out.println("delay:"+delay);
         if(!"-1".equals(id) && targetImage.containsKey(id)){
             iv.setImageResource(targetImage.get(id));
             getServerId(delay);

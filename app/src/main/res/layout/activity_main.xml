@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.reachmedia.ad.reachmediaad.MainActivity"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:background="@mipmap/background"
+    android:gravity="center"
+    >
 
     <Button
         android:id="@+id/bt_video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
         android:text="视频测试"
         android:visibility="gone"/>
 
-    <Button
-        android:id="@+id/bt_six"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6张轮播"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bt_six"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="六张\n轮播"
+            style="@style/RedButtonStyle"/>
 
-    <Button
-        android:id="@+id/bt_four"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4张轮播"/>
+        <Button
+            android:id="@+id/bt_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="四张\n轮播"
+            style="@style/RedButtonStyle"
+            android:layout_marginLeft="20dp"/>
 
-    <Button
-        android:id="@+id/bt_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="信号测试"/>
+        <Button
+            android:id="@+id/bt_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="信号\n测试"
+            style="@style/RedButtonStyle"
+            android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

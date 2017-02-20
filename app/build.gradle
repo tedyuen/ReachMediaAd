@@ -39,4 +39,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     //logger   代码地址-----> https://github.com/orhanobut/logger
     compile 'com.orhanobut:logger:1.8'
+    // bootstrap button https://github.com/Bearded-Hen/Android-Bootstrap
+    compile 'com.beardedhen:androidbootstrap:2.3.1'
 }
