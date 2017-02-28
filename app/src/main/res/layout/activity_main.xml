@@ -21,7 +21,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
         <Button
             android:id="@+id/bt_six"
             android:text="六张\n轮播"
@@ -33,9 +34,32 @@
             style="@style/RedButtonStyle"
             android:layout_marginLeft="20dp"/>
 
+        <!--<Button-->
+            <!--android:id="@+id/bt_distance"-->
+            <!--android:text="信号\n测试"-->
+            <!--style="@style/RedButtonStyle"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:visibility="gone"/>-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
-            android:id="@+id/bt_distance"
-            android:text="信号\n测试"
+            android:id="@+id/bt_hongbao"
+            android:text="新手\n红包"
+            style="@style/RedButtonStyle"/>
+
+        <Button
+            android:id="@+id/bt_guanggao"
+            android:text="买电\n影票"
+            style="@style/RedButtonStyle"
+            android:layout_marginLeft="20dp"/>
+
+        <Button
+            android:id="@+id/bt_download_video"
+            android:text="下载\n视频"
             style="@style/RedButtonStyle"
             android:layout_marginLeft="20dp"/>
 

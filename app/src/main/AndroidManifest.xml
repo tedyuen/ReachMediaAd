@@ -34,6 +34,14 @@
             android:screenOrientation="landscape"
             >
         </activity>
+        <activity android:name=".ui.StaticImgActivity"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+        <activity android:name=".ui.StaticDownloadVideoActivity"
+            android:screenOrientation="landscape"
+            >
+        </activity>
 
     </application>
 

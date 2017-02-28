@@ -20,6 +20,8 @@ import com.reachmedia.ad.reachmediaad.model.GetIdModel;
 import com.reachmedia.ad.reachmediaad.network.callback.UiDisplayListener;
 import com.reachmedia.ad.reachmediaad.network.controller.GetIdController;
 import com.reachmedia.ad.reachmediaad.ui.ImgPlayActivity;
+import com.reachmedia.ad.reachmediaad.ui.StaticDownloadVideoActivity;
+import com.reachmedia.ad.reachmediaad.ui.StaticImgActivity;
 import com.reachmedia.ad.reachmediaad.ui.VideoPlayActivity;
 
 import java.util.HashMap;
@@ -30,7 +32,11 @@ public class MainActivity extends Activity {
     Button bt_video;
     Button bt_six;
     Button bt_four;
-    Button bt_distance;
+//    Button bt_distance;
+
+    Button bt_hongbao;
+    Button bt_guanggao;
+    Button bt_download_video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +71,40 @@ public class MainActivity extends Activity {
             }
         });
 
-        bt_distance = (Button) findViewById(R.id.bt_distance);
-        bt_distance.setOnClickListener(new View.OnClickListener() {
+//        bt_distance = (Button) findViewById(R.id.bt_distance);
+//        bt_distance.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(),ImgPlayActivity.class);
+//                intent.putExtra("type",2);
+//                startActivity(intent);
+//            }
+//        });
+        bt_hongbao = (Button) findViewById(R.id.bt_hongbao);
+        bt_hongbao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),ImgPlayActivity.class);
-                intent.putExtra("type",2);
+                Intent intent = new Intent(getApplicationContext(),StaticImgActivity.class);
+                intent.putExtra("type",0);
+                startActivity(intent);
+            }
+        });
+
+        bt_guanggao = (Button) findViewById(R.id.bt_guanggao);
+        bt_guanggao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),StaticImgActivity.class);
+                intent.putExtra("type",1);
+                startActivity(intent);
+            }
+        });
+
+        bt_download_video = (Button) findViewById(R.id.bt_download_video);
+        bt_download_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),StaticDownloadVideoActivity.class);
                 startActivity(intent);
             }
         });
