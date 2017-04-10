@@ -42,6 +42,16 @@
             android:screenOrientation="landscape"
             >
         </activity>
+        <activity android:name=".ui.BetaAdActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity android:name=".ui.TestActivity"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+
+
 
     </application>
 

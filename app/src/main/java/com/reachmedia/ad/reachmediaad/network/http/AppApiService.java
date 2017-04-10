@@ -16,7 +16,7 @@ import retrofit.http.POST;
 public interface AppApiService {
 
 
-
-    @GET(AppApiContact.API_GET_ID)
-    void getId(Callback<GetIdModel> cb);
+    @FormUrlEncoded
+    @POST(AppApiContact.API_GET_ID)
+    void getId(@Field("screenMac") String screenMac,Callback<GetIdModel> cb);
 }

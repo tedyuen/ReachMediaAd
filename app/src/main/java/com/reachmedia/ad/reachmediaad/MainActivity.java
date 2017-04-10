@@ -19,9 +19,11 @@ import com.reachmedia.ad.reachmediaad.app.AppApiContact;
 import com.reachmedia.ad.reachmediaad.model.GetIdModel;
 import com.reachmedia.ad.reachmediaad.network.callback.UiDisplayListener;
 import com.reachmedia.ad.reachmediaad.network.controller.GetIdController;
+import com.reachmedia.ad.reachmediaad.ui.BetaAdActivity;
 import com.reachmedia.ad.reachmediaad.ui.ImgPlayActivity;
 import com.reachmedia.ad.reachmediaad.ui.StaticDownloadVideoActivity;
 import com.reachmedia.ad.reachmediaad.ui.StaticImgActivity;
+import com.reachmedia.ad.reachmediaad.ui.TestActivity;
 import com.reachmedia.ad.reachmediaad.ui.VideoPlayActivity;
 
 import java.util.HashMap;
@@ -32,6 +34,8 @@ public class MainActivity extends Activity {
     Button bt_video;
     Button bt_six;
     Button bt_four;
+    Button bt_ad;
+    Button bt_test;
 //    Button bt_distance;
 
     Button bt_hongbao;
@@ -108,6 +112,26 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        bt_ad = (Button) findViewById(R.id.bt_ad);
+        bt_ad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),BetaAdActivity.class);
+                startActivity(intent);
+            }
+        });
+        bt_test = (Button) findViewById(R.id.bt_test);
+        bt_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
 
     }

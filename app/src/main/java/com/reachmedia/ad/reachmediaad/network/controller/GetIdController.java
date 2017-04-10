@@ -26,7 +26,7 @@ public class GetIdController extends BaseHttpController<GetIdModel>{
     @Override
     protected void getNetData() {
 
-        App.getAppApiService().getId(new HttpBaseCallBack<GetIdModel>(){
+        App.getAppApiService().getId("",new HttpBaseCallBack<GetIdModel>(){
             @Override
             public void success(GetIdModel data, Response response) {
                 super.success(data, response);
