@@ -145,7 +145,7 @@ public class VideoPlayActivity extends Activity {
 
             }
         });
-        getIdController.getId();
+        getIdController.getId("");
     }
 
 

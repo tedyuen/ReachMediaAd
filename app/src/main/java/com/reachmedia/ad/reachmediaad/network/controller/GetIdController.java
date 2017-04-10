@@ -12,13 +12,15 @@ import retrofit.client.Response;
  * Created by tedyuen on 2017/2/7.
  */
 public class GetIdController extends BaseHttpController<GetIdModel>{
+    private String macAddress;
     public GetIdController(){}
 
     public GetIdController(UiDisplayListener<GetIdModel> uiDisplayListener){
         super(uiDisplayListener);
     }
 
-    public void getId(){
+    public void getId(String macAddress){
+        this.macAddress = macAddress;
         getNetData();
     }
 
@@ -26,7 +28,7 @@ public class GetIdController extends BaseHttpController<GetIdModel>{
     @Override
     protected void getNetData() {
 
-        App.getAppApiService().getId("",new HttpBaseCallBack<GetIdModel>(){
+        App.getAppApiService().getId(macAddress,new HttpBaseCallBack<GetIdModel>(){
             @Override
             public void success(GetIdModel data, Response response) {
                 super.success(data, response);

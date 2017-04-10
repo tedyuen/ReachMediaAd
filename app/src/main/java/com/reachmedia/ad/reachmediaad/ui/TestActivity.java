@@ -46,7 +46,6 @@ public class TestActivity extends BaseActivity {
             public boolean onPreDraw() {
                 int height = sv_one.getMeasuredHeight();
                 int width = sv_one.getMeasuredWidth();
-                System.out.println("one: "+height+","+width);
                 tv_desc.append("one: "+height+","+width+"\n");
                 return true;
             }
@@ -56,7 +55,6 @@ public class TestActivity extends BaseActivity {
             public boolean onPreDraw() {
                 int height = sv_two.getMeasuredHeight();
                 int width = sv_two.getMeasuredWidth();
-                System.out.println("two: "+height+","+width);
                 tv_desc.append("two: "+height+","+width+"\n");
                 tv_desc.append("-----------------\n");
                 return true;

@@ -25,12 +25,13 @@ import java.util.Map;
  * Created by tedyuen on 2017/2/20.
  */
 
-public class ImgPlayActivity extends Activity {
+public class ImgPlayActivity extends BaseActivity {
     private ImageView iv;
     int[] resourceId;
     long lastTime;
     long httpTime;
     int delay = 5000;
+    String macAddress = "";
 
 
     Map<String,Integer> targetImage = new HashMap<>();
@@ -42,7 +43,7 @@ public class ImgPlayActivity extends Activity {
         super.onCreate(savedInstanceState);
         hide();
         setContentView(R.layout.activity_img_play);
-
+        macAddress = getLocalMacAddressFromWifiInfo(this).replace(":","");
         iv = (ImageView) findViewById(R.id.iv);
 
         targetImage.put("img_5",R.mipmap.img_5);
@@ -141,19 +142,7 @@ public class ImgPlayActivity extends Activity {
                 setImage("-1");
             }
         });
-        getIdController.getId();
-    }
-
-
-
-    private void hide(){
-        // 隐藏标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 隐藏状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //去掉虚拟按键全屏显示
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getIdController.getId(macAddress);
     }
 
 
