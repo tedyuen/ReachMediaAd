@@ -36,10 +36,10 @@ public class BetaAdActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         hide();
         setContentView(R.layout.activity_beta_ad);
-
-        System.out.println("mac address: 1==> "+getLocalMacAddressFromWifiInfo(this));
-        macAddress = getLocalMacAddressFromWifiInfo(this).replace(":","");
-        System.out.println("mac address: 2==> "+macAddress);
+//
+//        System.out.println("mac address: 1==> "+getLocalMacAddressFromWifiInfo(this));
+//        macAddress = getLocalMacAddressFromWifiInfo(this).replace(":","");
+//        System.out.println("mac address: 2==> "+macAddress);
 
         iv_one = (ImageView) findViewById(R.id.iv_one);
         iv_two = (ImageView) findViewById(R.id.iv_two);
