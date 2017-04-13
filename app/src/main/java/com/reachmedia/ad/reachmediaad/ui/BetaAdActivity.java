@@ -45,14 +45,13 @@ public class BetaAdActivity extends BaseActivity {
         iv_two = (ImageView) findViewById(R.id.iv_two);
 
 
-
         resourceId = new int[]{
-                R.mipmap.img_1,
-                R.mipmap.img_2,
-                R.mipmap.img_3,
-                R.mipmap.img_4,
-                R.mipmap.img_5,
-                R.mipmap.img_6
+                R.mipmap.beta_img_1,
+                R.mipmap.beta_img_2,
+                R.mipmap.beta_img_3,
+                R.mipmap.beta_img_4,
+                R.mipmap.beta_img_5,
+                R.mipmap.beta_img_6
         };
 
         Timer timer = new Timer();
