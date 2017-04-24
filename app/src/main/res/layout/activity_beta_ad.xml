@@ -11,8 +11,7 @@
         <ImageView
             android:id="@+id/iv_one"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"/>
+            android:layout_height="match_parent"/>
 
     </RelativeLayout>
 
@@ -25,8 +24,9 @@
             android:id="@+id/iv_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:src="@mipmap/img_down"/>
+        <!--android:scaleType="fitCenter"-->
+
     </RelativeLayout>
 
 
