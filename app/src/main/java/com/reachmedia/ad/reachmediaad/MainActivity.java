@@ -24,6 +24,7 @@ import com.reachmedia.ad.reachmediaad.ui.ImgPlayActivity;
 import com.reachmedia.ad.reachmediaad.ui.StaticDownloadVideoActivity;
 import com.reachmedia.ad.reachmediaad.ui.StaticImgActivity;
 import com.reachmedia.ad.reachmediaad.ui.TestActivity;
+import com.reachmedia.ad.reachmediaad.ui.VideoAndImgActivity;
 import com.reachmedia.ad.reachmediaad.ui.VideoPlayActivity;
 
 import java.util.HashMap;
@@ -41,6 +42,7 @@ public class MainActivity extends Activity {
     Button bt_hongbao;
     Button bt_guanggao;
     Button bt_download_video;
+    Button bt_test_video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +131,16 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        bt_test_video = (Button) findViewById(R.id.bt_test_video);
+        bt_test_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),VideoAndImgActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

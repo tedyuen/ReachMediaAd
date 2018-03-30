@@ -80,6 +80,11 @@
             android:text="系统测试"
             style="@style/RedButtonStyle"/>
 
+        <Button
+            android:id="@+id/bt_test_video"
+            android:text="视频测试"
+            style="@style/RedButtonStyle"/>
+
 
 
     </LinearLayout>
